@@ -1,0 +1,333 @@
+# Ukrainian translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-11-22 16:54+0100\n"
+"PO-Revision-Date: 2024-10-14 12:54+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: app/templates/posts/content.html:5
+msgid "Edited"
+msgstr "Відредаговано"
+
+#: app/components/jinja2/filters.py:20
+msgid "EDITED"
+msgstr "ВІДРЕДАГОВАНО"
+
+#: app/components/jinja2/filters.py:22
+msgid "DELETED"
+msgstr "ВИДАЛЕНО"
+
+#: app/components/jinja2/filters.py:23
+msgid "UNKNOWN"
+msgstr "НЕВІДОМО"
+
+#: app/templates/chat/content.html:3
+msgid "Name:"
+msgstr "Ім'я:"
+
+#: app/templates/chat/content.html:6
+msgid "Type:"
+msgstr "Тип:"
+
+#: app/templates/chat/content.html:9
+msgid "Link:"
+msgstr "Посилання:"
+
+#: app/templates/chat/header.html:5
+msgid "Chat"
+msgstr "Чат"
+
+#: app/templates/chat/init.html:5
+msgid "Chat info"
+msgstr "Інформація про чат"
+
+#: app/templates/chats/add-button.html:3
+msgid "Add new source"
+msgstr "Додати нове джерело"
+
+#: app/templates/chats/empty-content.html:4
+msgid "You chats list is empty"
+msgstr "Список ваших чатів порожній"
+
+#: app/templates/chats/header.html:5
+msgid "Chats"
+msgstr "Чати"
+
+#: app/templates/chats/init.html:5
+msgid "Chat list"
+msgstr "Список чатів"
+
+#: app/templates/header/auth.html:11
+msgid "Login"
+msgstr "Вхід"
+
+#: app/templates/header/auth.html:14
+msgid "Sign Up"
+msgstr "Реєстрація"
+
+#: app/templates/header/language-selector.html:5
+#: app/templates/localization/language-selector.html:6
+msgid "EN"
+msgstr "EN"
+
+#: app/templates/header/language-selector.html:10
+#: app/templates/localization/language-selector.html:11
+msgid "RU"
+msgstr "RU"
+
+#: app/templates/header/language-selector.html:15
+#: app/templates/localization/language-selector.html:16
+msgid "UK"
+msgstr "UK"
+
+#: app/templates/header/navigation.html:2
+msgid "Main"
+msgstr "Головна"
+
+#: app/templates/header/navigation.html:3
+msgid "Top 10 functions"
+msgstr "Топ 10 функцій"
+
+#: app/templates/header/navigation.html:4
+msgid "Why us"
+msgstr "Чому саме ми"
+
+#: app/templates/header/navigation.html:5
+msgid "Pricing"
+msgstr "Ціни"
+
+#: app/templates/home/content.html:4
+msgid "Revolutionize your"
+msgstr "Переосмисліть управління"
+
+#: app/templates/home/content.html:4
+msgid "channels with our "
+msgstr "каналами з нашою "
+
+#: app/templates/home/content.html:4
+msgid "Management Panel"
+msgstr "Панеллю керування"
+
+#: app/templates/home/content.html:6
+msgid ""
+"Say goodbye to the hassle of manual updates and embrace a new era of "
+"streamlined channel management."
+msgstr ""
+"Попрощайтеся з клопотами ручних оновлень і відкрийте для себе нову еру "
+"оптимізованого управління каналами."
+
+#: app/templates/home/content.html:13
+msgid ""
+"Effortlessly parse news from various websites and Telegram channels, and "
+"seamlessly publish posts to your channels directly from websites."
+msgstr ""
+"Легко аналізувати новини з різних веб-сайтів і Telegram-каналів, а також "
+"безперешкодно публікуйте дописи на своїх каналах безпосередньо з "
+"веб-сайтів"
+
+#: app/templates/home/content.html:19
+msgid "Why Us"
+msgstr "Чому саме ми"
+
+#: app/templates/home/content.html:22
+msgid ""
+"Choose us to simplify your channel management and experience the future "
+"of news channel administration."
+msgstr ""
+"Оберіть нас, щоб спростити управління вашим каналом і відчути "
+"майбутнєадміністрування новинних каналів."
+
+#: app/templates/home/content.html:29 app/templates/home/content.html:65
+msgid "News Aggregator"
+msgstr "Агрегатор новин"
+
+#: app/templates/home/content.html:32 app/templates/home/content.html:68
+msgid ""
+"Say goodbye to the chaos of juggling multiple Telegram channels. We offer"
+" a centralized hub that simplifies content management, so you can focus "
+"on what truly matters."
+msgstr ""
+"Попрощайтеся з хаосом жонглювання кількома Telegram-каналами. Ми "
+"пропонуємо  централізований хаб, який спрощує управління контентом, щоб "
+"ви могли зосередитися на тому, що справді важливо."
+
+#: app/templates/home/content.html:50 app/templates/home/content.html:86
+msgid "User-Focused Design:"
+msgstr "Дизайн, орієнтований на користувача:"
+
+#: app/templates/home/content.html:53 app/templates/home/content.html:89
+msgid ""
+"We`ve built our interface with you in mind. Our user-friendly design "
+"ensures you can navigate with ease and make the most out of our powerful "
+"features."
+msgstr ""
+"Ми створили наш інтерфейс з думкою про вас. Наш зручний дизайн гарантує, "
+"що ви зможете легко орієнтуватися і максимально використовувати наші "
+"потужні функцій."
+
+#: app/templates/home/init.html:5
+msgid "Teletracker"
+msgstr "Teletracker"
+
+#: app/templates/post/content.html:10
+msgid "Source"
+msgstr "Джерело"
+
+#: app/templates/post/content.html:16
+msgid "Was changed:"
+msgstr "Було змінено:"
+
+#: app/templates/post/content.html:24
+msgid "Medias"
+msgstr "Медіа"
+
+#: app/templates/post/content.html:40
+msgid "Add files"
+msgstr "Додати файли"
+
+#: app/templates/post/content.html:41
+msgid "Save files"
+msgstr "Зберегти файли"
+
+#: app/templates/post/content.html:53
+msgid "Text:"
+msgstr "Текст:"
+
+#: app/templates/post/content.html:103
+msgid "Text is not modified"
+msgstr "Текст не змінено"
+
+#: app/templates/post/content.html:135
+msgid "Bold"
+msgstr "Жирний"
+
+#: app/templates/post/content.html:136
+msgid "Italic"
+msgstr "Курсив"
+
+#: app/templates/post/content.html:137
+msgid "Strikethrough"
+msgstr "Закреслений"
+
+#: app/templates/post/content.html:138
+msgid "Underline"
+msgstr "Підкреслений"
+
+#: app/templates/post/content.html:139
+msgid "Monospace"
+msgstr "Моноширинний"
+
+#: app/templates/post/content.html:140
+msgid "Hyperlink"
+msgstr "Гіперпосилання"
+
+#: app/templates/post/content.html:143
+msgid "Save text"
+msgstr "Зберегти текст"
+
+#: app/templates/post/content.html:147
+msgid "Publicate post"
+msgstr "Опублікувати пост"
+
+#: app/templates/post/header.html:5
+msgid "Post"
+msgstr "Пост"
+
+#: app/templates/post/init.html:6
+msgid "Post info"
+msgstr "Інформація про пост"
+
+#: app/templates/posts/content.html:5
+msgid "Edited"
+msgstr "Відредаговано"
+
+#: app/templates/posts/empty-content.html:3
+msgid "Your news feed is empty"
+msgstr "Ваша стрічка новин порожня"
+
+#: app/templates/posts/header.html:5
+msgid "Posts"
+msgstr "Пости"
+
+#: app/templates/posts/init.html:5
+msgid "Posts list"
+msgstr "Список постів"
+
+#: app/templates/profile/content.html:8 app/templates/profile/content.html:13
+msgid "Current Plan:"
+msgstr "Поточний тариф:"
+
+#: app/templates/profile/content.html:9 app/templates/profile/content.html:27
+msgid "Not available"
+msgstr "Відсутній"
+
+#: app/templates/profile/content.html:14
+msgid "Tarif 1"
+msgstr "Тариф 1"
+
+#: app/templates/profile/content.html:17
+msgid "Tarif end time:"
+msgstr "Час закінчення тарифу:"
+
+#: app/templates/profile/content.html:18
+msgid "10 September 2023"
+msgstr "10 Вересень 2023"
+
+#: app/templates/profile/content.html:22
+msgid "Username:"
+msgstr "Користувач:"
+
+#: app/templates/profile/header.html:5 app/templates/profile/init.html:5
+msgid "Profile"
+msgstr "Профіль"
+
+#: app/templates/projects/empty-content.html:4
+msgid "You project list is empty"
+msgstr "Список ваших проєктів порожній"
+
+#: app/templates/projects/header.html:5 app/templates/projects/init.html:5
+msgid "Projects"
+msgstr "Проєкти"
+
+#: app/templates/side-menu/init.html:15
+msgid "News feed"
+msgstr "Стрічка новин"
+
+#: app/templates/side-menu/init.html:21
+msgid "Telegram sources"
+msgstr "Джерела Telegram"
+
+#: app/templates/side-menu/init.html:33
+msgid "My projects"
+msgstr "Мої проєкти"
+
+#: app/templates/side-menu/init.html:39
+msgid "Main page"
+msgstr "Головна"
+
+#~ msgid "Date:"
+#~ msgstr "Дата:"
+
+#~ msgid "Was posted:"
+#~ msgstr "Було опубліковано:"
+
+#~ msgid "Chat:"
+#~ msgstr "Чат:"
+
+#~ msgid "Website sources"
+#~ msgstr "Сайти-джерела"
+

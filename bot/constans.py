@@ -1,0 +1,1 @@
+ELEMENT_PER_PAGE = 9

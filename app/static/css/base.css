@@ -1,0 +1,238 @@
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('/static/fonts/CeraRoundPro-Black.woff2') format('woff2'),
+        url('/static/fonts/CeraRoundPro-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('/static/fonts/CeraRoundPro-Medium.woff2') format('woff2'),
+        url('/static/fonts/CeraRoundPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('/static/fonts/CeraRoundPro-Light.woff2') format('woff2'),
+        url('/static/fonts/CeraRoundPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('/static/fonts/CeraRoundPro-Regular.woff2') format('woff2'),
+        url('/static/fonts/CeraRoundPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('/static/fonts/CeraRoundPro-Bold.woff2') format('woff2'),
+        url('/static/fonts/CeraRoundPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('/static/fonts/CeraRoundPro-Thin.woff2') format('woff2'),
+        url('/static/fonts/CeraRoundPro-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --white-smoke: #F6F6F6;
+    --blue: #575CFB;
+    --light-blue: #9CAEFD;
+    --very-light-blue: #f2f4ff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cera Round Pro', 'Arial', sans-serif;
+
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+body {
+    background-color: var(--white-smoke);
+    font-style: normal;
+    overflow-x: hidden;
+}
+a {
+    color: inherit;
+}
+input {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+.light-shadow {
+    box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.1);
+}
+.light-shadow-inset {
+    box-shadow: inset 0px -2px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: inset 0px -2px 5px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0px -2px 5px 0px rgba(0,0,0,0.1);
+}
+.y-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.x-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.padding-10 {
+    padding: 10px;
+}
+.padding-20 {
+    padding: 20px;
+}
+.margin-y-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.margin-y-20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.flex {
+    display: flex;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.jc-sb {
+    justify-content: space-between;
+}
+.jc-se {
+    justify-content: space-evenly;
+}
+.jc-cn {
+    justify-content: center;
+}
+.fd-col {
+    flex-direction: column;
+}
+.gap-10 {
+    gap: 10px;
+}
+.align-center {
+    align-items: center;
+}
+.cur-pointer {
+    cursor: pointer;
+}
+.blue-text {
+    color: var(--blue);
+}
+.bold {
+    font-weight: bold;
+}
+.button-container {
+    max-width: 400px;
+    width: 100%;
+}
+.button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    background: var(--blue);
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+.button.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.light.button {
+    background-color: var(--light-blue);
+}
+.light.button:hover {
+    background-color: var(--blue);
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.simple-card {
+    background: white;
+    border-radius: 15px;
+    width: 100%;
+    transition: all .3s;
+    margin-bottom: 20px;
+}
+.padd-15-20 {
+    padding: 15px 20px;
+}
+.hov-scale {
+    transition: all .3s;
+}
+.hov-scale:hover {
+    transform: scale(1.03);
+}
+.card-details {
+    font-size: 19px;
+}
+.pagination-button {
+    background-color: var(--blue);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+}
+.big.pagination-button {
+    border: 3px solid var(--light-blue);
+    background-color: white;
+    width: 48px;
+    height: 48px;
+    font-size: 25px;
+}
+.big.pagination-button:hover {
+    border: 3px solid var(--blue);
+}
+.inactive.pagination-button {
+    background-color: var(--light-blue);
+}
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 400px;
+    }
+    .card-details {
+        font-size: 12px;
+    }
+}

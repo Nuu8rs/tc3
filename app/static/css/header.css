@@ -1,0 +1,35 @@
+header {
+    position: relative;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+}
+.menu-button {
+    background: var(--light-blue);
+    border-radius: 15px;
+    padding: 16px;
+    width: 48px;
+    height: 48px;
+    left: 0;
+}
+.user-section {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.user-icon {
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+    background-color: var(--very-light-blue);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+/* .desktop-hide {
+    display: none;
+}
+@media only screen and (max-width: 1200px) {
+    .desktop-hide {
+        display: block;
+    }
+} */

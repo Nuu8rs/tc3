@@ -1,0 +1,116 @@
+version: '3.8'
+
+services:
+  api:
+    image: python:3.10
+    container_name: TeletrackerWeb
+    build:
+      context: .
+      dockerfile: DockerfileWeb
+    ports:
+      - "${APP_API_PORT}:${APP_API_PORT}"
+    volumes:
+      - .:/app
+      - shared_static:/app/static/media
+    environment:
+      PYTHONPATH: .
+      TZ: UTC
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      ASYNC_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      BASE_BOT_API_URL: http://bot:3011
+      BASE_API_URL: http://accounts:3010
+    env_file:
+      - .env
+    networks:
+      - teletracker_network
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  bot:
+    container_name: TeletrackerBot
+    build:
+      context: .
+      dockerfile: DockerfileBot
+    volumes:
+      - .:/bot
+    environment:
+      PYTHONPATH: .
+      TZ: UTC
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      ASYNC_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      BASE_API_URL: http://accounts:3010
+    env_file:
+      - .env
+    networks:
+      - teletracker_network
+    ports:
+      - "3010:3010"
+      - "3012:3011"
+
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "python bot/main.py"
+
+  accounts:
+    container_name: TeletrackerAccounts
+    build:
+      context: .
+      dockerfile: DockerfileAccount
+    volumes:
+      - .:/accounts
+      - shared_static:/accounts/static/media
+    environment:
+      PYTHONPATH: .
+      TZ: UTC
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      ASYNC_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    env_file:
+      - .env
+    networks:
+      - teletracker_network
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3011:3010"
+    command: sh -c "python accounts/main.py"
+
+  db:
+    container_name: TeletrackerDb
+    image: postgres:14.2
+    restart: always
+    command: postgres -c 'max_connections=1000'
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      TZ: UTC
+      APP_API_PORT: ${APP_API_PORT}
+      APP_CONFIG_FILE: app/config.yaml
+      AUTH_SECRET_KEY: ${AUTH_SECRET_KEY}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB}
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - teletracker_network
+    env_file:
+      - .env
+
+
+networks:
+  teletracker_network:
+    driver: bridge
+
+volumes:
+  shared_static:

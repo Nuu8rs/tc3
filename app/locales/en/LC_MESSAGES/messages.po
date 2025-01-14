@@ -1,0 +1,331 @@
+# English translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-11-22 16:54+0100\n"
+"PO-Revision-Date: 2024-09-12 10:50+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: app/components/jinja2/filters.py:18
+msgid "NOT CHANGED"
+msgstr "NOT CHANGED"
+
+#: app/components/jinja2/filters.py:20
+msgid "EDITED"
+msgstr "EDITED"
+
+#: app/components/jinja2/filters.py:22
+msgid "DELETED"
+msgstr "DELETED"
+
+#: app/components/jinja2/filters.py:23
+msgid "UNKNOWN"
+msgstr "UNKNOWN"
+
+#: app/templates/chat/content.html:3
+msgid "Name:"
+msgstr "Name:"
+
+#: app/templates/chat/content.html:6
+msgid "Type:"
+msgstr "Type:"
+
+#: app/templates/chat/content.html:9
+msgid "Link:"
+msgstr "Link:"
+
+#: app/templates/chat/header.html:5
+msgid "Chat"
+msgstr "Chat"
+
+#: app/templates/chat/init.html:5
+msgid "Chat info"
+msgstr "Chat info"
+
+#: app/templates/chats/add-button.html:3
+msgid "Add new source"
+msgstr "Add new source"
+
+#: app/templates/chats/empty-content.html:4
+msgid "You chats list is empty"
+msgstr "You chats list is empty"
+
+#: app/templates/chats/header.html:5
+msgid "Chats"
+msgstr "Chats"
+
+#: app/templates/chats/init.html:5
+msgid "Chat list"
+msgstr "Chat list"
+
+#: app/templates/header/auth.html:11
+msgid "Login"
+msgstr "Login"
+
+#: app/templates/header/auth.html:14
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: app/templates/header/language-selector.html:5
+#: app/templates/localization/language-selector.html:6
+msgid "EN"
+msgstr "EN"
+
+#: app/templates/header/language-selector.html:10
+#: app/templates/localization/language-selector.html:11
+msgid "RU"
+msgstr "RU"
+
+#: app/templates/header/language-selector.html:15
+#: app/templates/localization/language-selector.html:16
+msgid "UK"
+msgstr "UK"
+
+#: app/templates/header/navigation.html:2
+msgid "Main"
+msgstr "Main"
+
+#: app/templates/header/navigation.html:3
+msgid "Top 10 functions"
+msgstr "Top 10 functions"
+
+#: app/templates/header/navigation.html:4
+msgid "Why us"
+msgstr "Why us"
+
+#: app/templates/header/navigation.html:5
+msgid "Pricing"
+msgstr "Pricing"
+
+#: app/templates/home/content.html:4
+msgid "Revolutionize your"
+msgstr "Revolutionize your"
+
+#: app/templates/home/content.html:4
+msgid "channels with our "
+msgstr "channels with our "
+
+#: app/templates/home/content.html:4
+msgid "Management Panel"
+msgstr "Management Panel"
+
+#: app/templates/home/content.html:6
+msgid ""
+"Say goodbye to the hassle of manual updates and embrace a new era of "
+"streamlined channel management."
+msgstr ""
+"Say goodbye to the hassle of manual updates and embrace a new era of "
+"streamlined channel management."
+
+#: app/templates/home/content.html:13
+msgid ""
+"Effortlessly parse news from various websites and Telegram channels, and "
+"seamlessly publish posts to your channels directly from websites."
+msgstr ""
+"Effortlessly parse news from various websites and Telegram channels, and "
+"seamlessly publish posts to your channels directly from websites."
+
+#: app/templates/home/content.html:19
+msgid "Why Us"
+msgstr "Why us"
+
+#: app/templates/home/content.html:22
+msgid ""
+"Choose us to simplify your channel management and experience the future "
+"of news channel administration."
+msgstr ""
+"Choose us to simplify your channel management and experience the future "
+"of news channel administration."
+
+#: app/templates/home/content.html:29 app/templates/home/content.html:65
+msgid "News Aggregator"
+msgstr "News Aggregator"
+
+#: app/templates/home/content.html:32 app/templates/home/content.html:68
+msgid ""
+"Say goodbye to the chaos of juggling multiple Telegram channels. We offer"
+" a centralized hub that simplifies content management, so you can focus "
+"on what truly matters."
+msgstr ""
+"Say goodbye to the chaos of juggling multiple Telegram channels. We offer"
+" a centralized hub that simplifies content management, so you can focus "
+"on what truly matters."
+
+#: app/templates/home/content.html:50 app/templates/home/content.html:86
+msgid "User-Focused Design:"
+msgstr "User-Focused Design:"
+
+#: app/templates/home/content.html:53 app/templates/home/content.html:89
+msgid ""
+"We`ve built our interface with you in mind. Our user-friendly design "
+"ensures you can navigate with ease and make the most out of our powerful "
+"features."
+msgstr ""
+"We`ve built our interface with you in mind. Our user-friendly design "
+"ensures you can navigate with ease and make the most out of our powerful "
+"features."
+
+#: app/templates/home/init.html:5
+msgid "Teletracker"
+msgstr "Teletracker"
+
+#: app/templates/post/content.html:10
+msgid "Source"
+msgstr "Source"
+
+#: app/templates/post/content.html:16
+msgid "Was changed:"
+msgstr "Was changed:"
+
+#: app/templates/post/content.html:24
+msgid "Medias"
+msgstr "Medias"
+
+#: app/templates/post/content.html:40
+msgid "Add files"
+msgstr "Add files"
+
+#: app/templates/post/content.html:41
+msgid "Save files"
+msgstr "Save files"
+
+#: app/templates/post/content.html:53
+msgid "Text:"
+msgstr "Text:"
+
+#: app/templates/post/content.html:103
+msgid "Text is not modified"
+msgstr "Text is not modified"
+
+#: app/templates/post/content.html:135
+msgid "Bold"
+msgstr "Bold"
+
+#: app/templates/post/content.html:136
+msgid "Italic"
+msgstr "Italic"
+
+#: app/templates/post/content.html:137
+msgid "Strikethrough"
+msgstr "Strikethrough"
+
+#: app/templates/post/content.html:138
+msgid "Underline"
+msgstr "Underline"
+
+#: app/templates/post/content.html:139
+msgid "Monospace"
+msgstr "Monospace"
+
+#: app/templates/post/content.html:140
+msgid "Hyperlink"
+msgstr "Hyperlink"
+
+#: app/templates/post/content.html:143
+msgid "Save text"
+msgstr "Save text"
+
+#: app/templates/post/content.html:147
+msgid "Publicate post"
+msgstr "Publicate post"
+
+#: app/templates/post/header.html:5
+msgid "Post"
+msgstr "Post"
+
+#: app/templates/post/init.html:6
+msgid "Post info"
+msgstr "Post info"
+
+#: app/templates/posts/content.html:5
+msgid "Edited"
+msgstr "Edited"
+
+#: app/templates/posts/empty-content.html:3
+msgid "Your news feed is empty"
+msgstr "Your news feed is empty"
+
+#: app/templates/posts/header.html:5
+msgid "Posts"
+msgstr "Posts"
+
+#: app/templates/posts/init.html:5
+msgid "Posts list"
+msgstr "Posts list"
+
+#: app/templates/profile/content.html:8 app/templates/profile/content.html:13
+msgid "Current Plan:"
+msgstr "Current Plan:"
+
+#: app/templates/profile/content.html:9 app/templates/profile/content.html:27
+msgid "Not available"
+msgstr "Not available"
+
+#: app/templates/profile/content.html:14
+msgid "Tarif 1"
+msgstr "Tarif 1"
+
+#: app/templates/profile/content.html:17
+msgid "Tarif end time:"
+msgstr "Tarif end time:"
+
+#: app/templates/profile/content.html:18
+msgid "10 September 2023"
+msgstr "10 September 2023"
+
+#: app/templates/profile/content.html:22
+msgid "Username:"
+msgstr "Username:"
+
+#: app/templates/profile/header.html:5 app/templates/profile/init.html:5
+msgid "Profile"
+msgstr "Profile"
+
+#: app/templates/projects/empty-content.html:4
+msgid "You project list is empty"
+msgstr "You project list is empty"
+
+#: app/templates/projects/header.html:5 app/templates/projects/init.html:5
+msgid "Projects"
+msgstr "Projects"
+
+#: app/templates/side-menu/init.html:15
+msgid "News feed"
+msgstr "News feed"
+
+#: app/templates/side-menu/init.html:21
+msgid "Telegram sources"
+msgstr "Telegram sources"
+
+#: app/templates/side-menu/init.html:33
+msgid "My projects"
+msgstr "My projects"
+
+#: app/templates/side-menu/init.html:39
+msgid "Main page"
+msgstr "Main page"
+
+#~ msgid "Date:"
+#~ msgstr "Date:"
+
+#~ msgid "Was posted:"
+#~ msgstr "Was posted:"
+
+#~ msgid "Chat:"
+#~ msgstr "Chat:"
+
+#~ msgid "Website sources"
+#~ msgstr "Website sources"
+

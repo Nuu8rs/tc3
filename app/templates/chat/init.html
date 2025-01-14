@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block additional_css %}<link rel="stylesheet" href="/static/css/chat.css">{% endblock %}
+
+{% block title %} {{ _('Chat info') }} {% endblock %}
+
+{% block body %}
+    {% include 'side-menu/init.html' %}
+    {% include 'chat/header.html' %}
+    <div class="container">
+        {% include 'chat/content.html' %}
+    </div>
+{% endblock %}

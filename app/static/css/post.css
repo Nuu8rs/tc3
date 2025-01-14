@@ -1,0 +1,96 @@
+.card-title {
+    background-color: var(--very-light-blue);
+    border-radius: 10px 10px 0 0;
+}
+.slider-container {
+    max-width: 800px;
+    text-align: center;
+}
+#slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 200px;
+}
+#slider:not(:has(> *)) {
+    display: none;
+}
+#slider:not(:has(> *)) ~ .pagination-button {
+    display: none;
+}
+.slide {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    transition: all .3s;
+}
+.slide img, .slide video {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.delete-btn {
+    position: absolute;
+    padding: 2px 1px 2px 2px;
+    top: 5px;
+    right: 5px;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: white;
+}
+#file-input {
+    margin: 10px 0;
+}
+#editor a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+#editor u {
+    text-decoration: underline;
+}
+#editor strike, #editor s, #editor del {
+    text-decoration: line-through;
+}
+#editor code, #editor pre {
+    background-color: var(--very-light-blue);
+    text-decoration: none !important;
+}
+#editor {
+    outline: solid gray 1px;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#editor * {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+.format-icon {
+    background: var(--blue);
+    color: white;
+    padding: 5px 5px 5.5px;
+    height: 30.5px;
+    border-radius: 3px;
+}
+.format-icon img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1) brightness(2);
+}
+.button-shape {
+    background: var(--light-blue);
+    border-radius: 25px;
+}

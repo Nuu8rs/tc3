@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="inner-header light-shadow">
+        <div class="logotype">
+            <img src="/static/img/logotype.svg">
+        </div>
+        {% include 'header/navigation.html' %}
+        {% include 'header/auth.html' %}
+        <div class="menu-button">
+            <img src="/static/img/menu-btn.svg">
+        </div>
+    </div>
+    {% include 'header/language-selector.html' %}
+    <div class="menu-container light-shadow">
+        <div class="menu-content">
+            <div class="menu-button">
+                <img src="/static/img/menu-btn-close.svg">
+            </div>
+            {% include 'header/navigation.html' %}
+            {% include 'header/auth.html' %}
+        </div>
+    </div>
+</div>

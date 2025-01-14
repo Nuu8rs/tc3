@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block additional_css %}<link rel="stylesheet" href="/static/css/profile.css">{% endblock %}
+
+{% block title %} {{ _('Profile') }} {% endblock %}
+
+{% block body %}
+    {% include 'side-menu/init.html' %}
+    {% include 'profile/header.html' %}
+    <div class="container">
+        {% include 'profile/content.html' %}
+    </div>    
+{% endblock %}

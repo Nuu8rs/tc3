@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block additional_css %}<link rel="stylesheet" href="/static/css/styles.css">{% endblock %}
+
+{% block title %} {{ _('Teletracker') }} {% endblock %}
+
+{% block header %} 
+    {% include 'header/base.html' %}
+{% endblock %}
+
+{% block body %}
+    <div class="main-content">
+        {% include 'home/background.html' %}
+        {% include 'home/content.html' %}
+    </div>
+{% endblock %}

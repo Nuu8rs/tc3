@@ -1,0 +1,23 @@
+{% if projects %}
+    <div class="flex gap-10 align-center fd-col">
+        {% for project in projects %}
+            <div class="project-container flex gap-10 fd-col {% if project.id == token_data.current_project_id %} selected {% endif %}">
+                    <a href="/project/switch?id={{ project.id }}" class="simple-card hov-scale padd-15-20">
+                        <div class="project">
+                            {{ project.chat_name }}
+                        </div>
+                    </a>
+                <div class="flex gap-10 nav-buttons">
+                    <a href="/news" class="simple-card hov-scale padd-15-20" style="margin-bottom: 0;">
+                        {{ _('News feed') }}
+                    </a>
+                    <a href="/sources-tg" class="simple-card hov-scale padd-15-20" style="margin-bottom: 0;">
+                        {{ _('Sources') }}
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    {% include 'projects/empty-content.html' %}
+{% endif %}

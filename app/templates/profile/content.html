@@ -1,0 +1,37 @@
+<div class="profile-card">
+    <div class="avatar"><img src="/static/img/profile-icon.svg"></div>
+    <h2 class="username">{{ user.name }}</h2>
+    <div class="subscription-details">
+
+        {% if not user.subscription_id %}
+            <div class="detail">
+                <span>{{ _('Current Plan:') }}</span>
+                <span> {{ _('Not available') }} </span> {# TODO tarifs #}
+            </div>
+        {% else %}
+            <div class="detail">
+                <span>{{ _('Current Plan:') }}</span>
+                <span>{{ _('Tarif 1') }}</span> {# TODO tarifs #}
+            </div>
+            <div class="detail">
+                <span>{{ _('Tarif end time:') }}</span>
+                <span>{{ _('10 September 2023') }}</span>
+            </div>
+        {% endif %}
+        <div class="detail">
+            <span>{{ _('Username:') }}</span>
+            <span>
+                {% if user.login %}
+                    @{{ user.login }}
+                {% else %}
+                    {{ _('Not available') }}
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    {# <div class="action-buttons">
+        <button>{{ _('Change password') }}</button>
+        <button>{{ _('Change subscription plan') }}</button>
+        <button>{{ _('Renew subscription') }}</button>
+    </div> #}
+</div>

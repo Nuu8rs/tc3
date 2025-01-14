@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block additional_css %}<link rel="stylesheet" href="/static/css/posts.css">{% endblock %}
+
+{% block title %} {{ _('Posts list') }} {% endblock %}
+
+{% block body %}
+    {% include 'side-menu/init.html' %}
+    {% include 'posts/header.html' %}
+    <div class="container">
+        {% include 'posts/content.html' %}
+    </div>
+{% endblock %}

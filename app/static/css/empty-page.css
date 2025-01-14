@@ -1,0 +1,13 @@
+
+.emty-page-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.empty-page-label {
+    font-size: 20px;
+}
+.empty-page-image {
+    width: 200px;
+    height: auto;
+}

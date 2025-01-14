@@ -1,0 +1,38 @@
+.thumbnail-image {
+    max-height: 130px;
+    width: auto;
+    margin: 0 auto 10px auto;
+    border-radius: 3px;
+    max-width: 100%;
+}
+.post-hint {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 15px 6px 6px 6px;
+    padding: 5px;
+    background-color: var(--blue);
+    color: white;
+}
+.post-hint.right {
+    right: 0;
+    left: auto;
+    background-color: white;
+    border-radius: 6px 15px 6px 6px;
+    padding: 0;
+}
+.post-description {
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    line-height: 1.2em;
+    max-height: calc(1.2em * 5);
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+.read-article {
+    color: white;
+    padding: 0 0 0 10px;
+}

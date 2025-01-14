@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/static/css/header.css">
+<header class="padding-10 flex jc-se">
+    <div class="menu-button absolute y-center" id="sideMenuBtn">
+        <img src="/static/img/menu-btn.svg">
+    </div>
+    <div class="user-section">
+        {% block header_title %}{% endblock %}
+    </div>
+    {% include 'localization/language-selector.html' %}
+</header>

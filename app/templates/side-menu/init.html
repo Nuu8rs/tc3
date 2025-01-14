@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/static/css/side-menu.css">
+<div id="overlay" class="overlay"></div>
+<div id="sideMenu" class="side-menu">
+    <div class="menu-header padding-20">
+        <a href="/profile">
+            <h2>{{ user.name }}</h2>
+        </a>
+        <button id="closeMenuBtn">✕</button>
+    </div>
+    <div class="padding-20 side-content">
+        <ul>
+            <li>
+                <a class="menu-link flex align-center gap-10 cur-pointer" href="/news">
+                    <img class="menu-icon" src="/static/img/menu/news.svg">
+                    <span>{{  _('News feed') }}</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-link flex align-center gap-10 cur-pointer" href="/sources-tg">
+                    <img class="menu-icon" src="/static/img/menu/tg.svg">
+                    <span>{{  _('Telegram sources') }}</span>
+                </a>
+            </li>
+            {# <li>
+                <a class="menu-link flex align-center gap-10 cur-pointer" href="/sources-ws">
+                    <img class="menu-icon" src="/static/img/menu/website.svg">
+                    <span>{{  _('Website sources') }}</span>
+                </a>
+            </li> #}
+            <li>
+                <a class="menu-link flex align-center gap-10 cur-pointer" href="/projects">
+                    <img class="menu-icon" src="/static/img/menu/projects.svg">
+                    <span>{{  _('My projects') }}</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-link flex align-center gap-10 cur-pointer" href="/">
+                    <img class="menu-icon" src="/static/img/menu/home.svg">
+                    <span>{{  _('Main page') }}</span>
+                </a>
+            </li>
+        </ul>
+        {# <div class="pinned">
+            <h3>Pinned</h3>
+            <div class="scroll-container">
+            <h4>Channels</h4>
+            <div class="horizontal-scroll">
+                <span>TechInsightsHub...</span>
+                <span>HealthyLivingT...</span>
+                <span>FinancialGuru...</span>
+                <span>SciFiEnthusiast...</span>
+            </div>
+            <h4>Websites</h4>
+            <div class="horizontal-scroll">
+                <span>TechInsightsHub...</span>
+                <span>HealthyLivingT...</span>
+                <span>FinancialGuru...</span>
+                <span>SciFiEnthusiast...</span>
+            </div>
+            </div>
+        </div> #}
+    </div>
+</div>
+
+<script src="/static/js/side-menu.js"></script>

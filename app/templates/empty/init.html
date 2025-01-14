@@ -1,0 +1,8 @@
+{% block additional_css %}<link rel="stylesheet" href="/static/css/empty-page.css">{% endblock %}
+<div class="emty-page-container flex gap-10 align-center fd-col">
+    <div class="empty-page-label">
+        {% block empty_title %} {% endblock %}
+    </div>
+    <img class="empty-page-image" src="/static/img/empty.png">
+    {% block empty_button %} {% endblock %}
+</div>

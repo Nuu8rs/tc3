@@ -1,0 +1,321 @@
+<div class="simple-card padd-15-20">
+    <div class="flex jc-se gap-10 card-details">
+        <div class="flex gap-10">
+            <img src="/static/img/calendar.png" width="13" height="13">
+            <div class="bold">{{ post.creation_date | format_datetime }}</div>
+        </div>
+        <div>|</div>
+        <div class="flex gap-10">
+            <img src="/static/img/tg.svg" width="13" height="13">
+            <div class="bold blue-text"><a href="/chat-info?id={{ post.chat_id }}">{{ _("Source") }}</a></div>
+        </div>
+    </div>
+</div>
+{# <div class="simple-card">
+    <div class="card-title padd-15-20 flex jc-se">
+        <div class="bold">{{ _("Was changed:") }}</div>
+    </div>
+    <div class="padd-15-20">
+        {{ post.was_changed | post_status }}
+    </div>
+</div> #}
+<div class="simple-card">
+    <div class="card-title padd-15-20 flex jc-cn">
+        <div class="bold">{{ _("Medias") }}&nbsp;</div>
+        <div id="MediaLength">({{ medias | length }})</div>
+    </div>
+    <div class="padd-15-20">
+        <div class="slider-container">
+            <div id="slider" class="margin-y-10">
+                {%- if medias -%}
+                    {%- for media in medias -%}
+                        <div class="slide" data-url="{{ media.file_url }}">
+                            <img src="/static/img/trash.svg" class="delete-btn hov-scale">
+                            {{ media | format_media | safe }}
+                        </div>
+                    {%- endfor -%}
+                {%- endif -%}
+            </div>
+            <div class="flex jc-sb gap-10 align-center margin-y-10 button-shape">
+                <div class="big pagination-button flex jc-cn align-center hov-scale" onclick="changeSlides(-1)"><img id="langArrow" style="transform: rotate(90deg);" src="/static/img/arrow.svg"></div>
+                <div style="flex-grow: 1;">
+                    <input type="file" id="file-input" accept="image/*,video/*" multiple style="display: none;">
+                    <label for="file-input" class="hov-scale light button">{{ _("Add files") }}</label>
+                </div>
+                <div class="big pagination-button flex jc-cn align-center hov-scale" onclick="changeSlides(1)"><img id="langArrow" style="transform: rotate(270deg);" src="/static/img/arrow.svg"></div>
+            </div>
+        </div>
+
+        <template id="slide-template">
+            <div class="slide" style="display: none;">
+                <img src="/static/img/trash.svg" class="delete-btn hov-scale">
+            </div>
+        </template>
+    </div>
+</div>
+<div class="simple-card">
+    <div class="card-title padd-15-20 flex jc-se">
+        <div class="bold">{{ _("Text:") }}</div>
+    </div>
+    <div class="padd-15-20">
+        <script>
+            let index = 0;
+                
+            function showSlide(n) {
+                let slides = document.querySelectorAll(".slide");
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === n ? "block" : "none";
+                });
+            }
+            function changeSlides(n) {
+                let slides = document.querySelectorAll(".slide");
+                index += n;
+                if (index >= slides.length) index = 0;
+                if (index < 0) index = slides.length - 1;
+                showSlide(index);
+            }
+
+            showSlide(index);
+
+            function formatText(command) {
+                document.execCommand(command, false, null);
+            }
+
+            function insertLink() {
+                let url = prompt('{{ _("Enter URL:") }}');
+                if (url) {
+                    document.execCommand('createLink', false, url);
+                }
+            }
+
+            function wrapCode() {
+                const selection = window.getSelection();
+                if (!selection.rangeCount) return;
+
+                const range = selection.getRangeAt(0);
+                const selectedText = range.toString();
+
+                const parentNode = range.commonAncestorContainer.parentNode;
+                if (parentNode.nodeName === "CODE") {
+                    const textNode = document.createTextNode(parentNode.textContent);
+                    parentNode.parentNode.replaceChild(textNode, parentNode);
+                    return;
+                }
+
+                const codeElement = document.createElement("code");
+                codeElement.textContent = selectedText;
+
+                range.deleteContents();
+                range.insertNode(codeElement);
+
+                selection.removeAllRanges();
+            }
+
+            $(document).ready(() => {
+                const MAX_FILES = 10;
+                const MAX_FILE_SIZE = 5 * 1024 * 1024;
+                const slider = $('#slider');
+                const mediaLength = $('#MediaLength');
+                const page_url = new URL(window.location.href);
+                const post_id = page_url.searchParams.get('post_id');
+                function checkSlides() {
+                    const buttons = $('.big.pagination-button');
+                    if (slider.children().length === 0) {
+                        buttons.hide();
+                    } else {
+                        buttons.show();
+                    }
+                }
+                checkSlides();
+
+                slider.on('click', '.delete-btn', function() {
+                    const slide = $(this).closest('.slide');
+                    const fileUrl = slide.attr('data-url');
+                    sendRequest(
+                        '/delete-file',
+                        type='POST',
+                        rawData={ url: fileUrl, post_id: post_id },
+                        success_callback=(response)=>{
+                            if (response.post_id == post_id) {
+                                let slide_index = slide.index();
+                                slide.remove();
+                                if (index == slide_index) {
+                                    changeSlides(0);
+                                }
+                                mediaLength.html(`(${slider.children().length})`);
+                                checkSlides();
+                            } else {
+                                window.location.href = `/post-info?post_id=${response.post_id}`;
+                            }
+                        }
+                    )
+                });
+
+                $('#SendPost').on('click', () => {
+                    let text = document.getElementById('editor').innerHTML;
+                    let url = new URL(window.location.href);
+                    $('#SendPost').prop('disabled', true).addClass('disabled');
+                    sendRequest(
+                        url='/send-post',
+                        type='POST',
+                        rawData={post_id:post_id, text: (text !== original_text ? text : undefined)},
+                        success_callback=(response) => {
+                            if (response.post_id == post_id) {
+                                alert('{{ _("Success!") }}');
+                                original_text = text;
+                            } else {
+                                window.location.href = `/post-info?post_id=${response.post_id}`;
+                            }
+
+                        },
+                        complete_callback =()=> {
+                            $('#SendPost').prop('disabled', false).removeClass('disabled');
+                        }
+                    );
+                });
+
+                $('#file-input').on('change', function () {
+                    const files = this.files;
+                    if (!files.length) return alert('{{ _("Please choose files to upload.") }}');
+
+                    if (slider.children().length + files.length > MAX_FILES) {
+                        return alert('{{ _("Max 10 files!") }}');
+                    }
+
+                    let formData = new FormData();
+                    let hasInvalidFiles = false;
+
+                    Array.from(files).forEach(file => {
+                        if (!['image/png', 'image/jpeg', 'video/mp4'].includes(file.type)) {
+                            alert(`{{ _("File ${file.name} has an unacceptable format.") }}`);
+                            hasInvalidFiles = true;
+                            return;
+                        }
+
+                        if (file.size > MAX_FILE_SIZE) {
+                            alert(`{{ _("File ${file.name} is too large! Max 5 MB.") }}`);
+                            hasInvalidFiles = true;
+                            return;
+                        }
+
+                        formData.append('files', file);
+                    });
+
+                    if (hasInvalidFiles) {
+                        return;
+                    }
+
+                    formData.append('post_id', post_id);
+
+                    $('#SendPost').prop('disabled', true).addClass('disabled');
+                    $('#upload-btn').prop('disabled', true).addClass('disabled');
+
+                    $.ajax({
+                        url: '/upload-file',
+                        method: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: (response) => {
+                            if (response.post_id == post_id) {
+                                response.urls.forEach((url, index) => {
+                                    addSlide(files[index], url);
+                                    checkSlides();
+                                });
+                                changeSlides(0);
+                            } else {
+                                window.location.href = `/post-info?post_id=${response.post_id}`;
+                            }
+                        },
+                        error: () => {
+                            alert('{{ _("Uploading error!") }}');
+                        },
+                        complete: () => {
+                            $('#upload-btn').prop('disabled', false).removeClass('disabled');
+                            $('#SendPost').prop('disabled', false).removeClass('disabled');
+                        }
+                    });
+                });
+
+                const addSlide = (file, fileUrl) => {
+                    const slideTemplate = $('#slide-template').html();
+                    const slideElement = $(slideTemplate);
+
+                    slideElement.attr('data-url', fileUrl);
+
+                    if (file.type.startsWith('image')) {
+                    slideElement.append(`<img src="${URL.createObjectURL(file)}" alt="Image">`);
+                    } else if (file.type.startsWith('video')) {
+                    slideElement.append(`<video controls src="${URL.createObjectURL(file)}"></video>`);
+                    }
+                    
+                    slider.append(slideElement);
+
+                    mediaLength.html(`(${slider.children().length})`);
+                }
+
+
+                function cleanHTML(html) {
+                    html = html.replace(/<div>/g, '\n').replace(/<\/div>/g, '');
+                    html = html.replace(/<br>/g, '\n');
+                    return html;
+                }
+
+                let original_text = document.getElementById('editor').innerHTML;
+
+                const sendText = (success_callback) => {
+                    let text = document.getElementById('editor').innerHTML;
+                    if (text == original_text) {
+                        alert('{{ _("Text is not modified") }}');
+                        return;
+                    }
+
+                    $('#SendPost').prop('disabled', true).addClass('disabled');
+                    $('#SaveText').prop('disabled', true).addClass('disabled');
+
+                    text = cleanHTML(text);
+                    sendRequest(
+                        '/update-post',
+                        type='POST',
+                        rawData={ text, post_id },
+                        success_callback=success_callback,
+                        complete_callback=() => {
+                            $('#SendPost').prop('disabled', false).removeClass('disabled');
+                            $('#SaveText').prop('disabled', false).removeClass('disabled');
+                        }
+                    );
+                }
+
+                $('#SaveText').click(() => {
+                    let page_url = new URL(window.location.href);
+                    let post_id = page_url.searchParams.get('post_id');
+                    sendText(
+                        success_callback=(response)=>{
+                            if (response.post_id != post_id) {
+                                window.location.href = `/post-info?post_id=${response.post_id}`;
+                            } else {
+                                original_text = text;
+                            }
+                        }
+                    );
+                    
+                });
+            }); 
+        </script>
+        <div class="editor-toolbar flex gap-10 flex-wrap jc-cn">
+            <div class="format-icon" onclick="formatText('bold')"><img src="/static/img/editor/bold.png"></div>
+            <div class="format-icon" onclick="formatText('italic')"><img src="/static/img/editor/italic.png"></div>
+            <div class="format-icon" onclick="formatText('strikethrough')"><img src="/static/img/editor/strike.png"></div>
+            <div class="format-icon" onclick="formatText('underline')"><img src="/static/img/editor/underline.png"></div>
+            <div class="format-icon" onclick="wrapCode()"><img src="/static/img/editor/monospace.svg"></div>
+            <div class="format-icon" onclick="insertLink()"><img src="/static/img/editor/link.png"></div>
+        </div>
+        <div id="editor" class="editor margin-y-20" contenteditable="true">{{ post.text | format_html | replace_to_br_tag | safe }}</div>
+        <div class="hov-scale light button" id="SaveText">{{ _("Save text") }}</div>
+    </div>
+    <div class="padd-15-20">
+        <div class="hov-scale light button" id="SendPost">
+            {{ _("Publicate post") }}
+        </div>
+    </div>
+</div>

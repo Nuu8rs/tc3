@@ -1,0 +1,24 @@
+db:
+  master: !ENV ${ASYNC_DATABASE_URL}
+  master_sync: !ENV ${DATABASE_URL}
+  master_pool_min_size: !ENV ${MIN_POOL_SIZE:2}
+  master_pool_max_size: !ENV ${MAX_POOL_SIZE:5}
+env:
+  port: !ENV ${APP_API_PORT}
+  enable_cors: false
+  debug: true
+  base_api_url: !ENV ${BASE_API_URL}
+  base_bot_api_url: !ENV ${BASE_BOT_API_URL}
+auth:
+  secret_key: !ENV ${AUTH_SECRET_KEY}
+  algorithm: 'HS256'
+  token_expiration_minutes: 30
+  bot_token: !ENV ${BOT_TOKEN}
+media:
+ media_dir: [accounts, static, media]
+ media_endpoint: /static/media/
+ max_file_size_mb: 5
+ allowed_file_types: 
+  - image/png
+  - image/jpeg
+  - video/mp4

@@ -1,0 +1,28 @@
+#form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: none;
+    z-index: 1100;
+}
+.form-content {
+    width: 200px;
+}
+.form-content label {
+    text-align: center;
+}
+.form-content input {
+    width: 100%;
+    border: 1px solid lightgray;
+    outline: none;
+    border-radius: 5px;
+}
+#new-source {
+    padding: 8px;
+    font-size: 14px;
+}

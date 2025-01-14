@@ -1,0 +1,43 @@
+{% if posts %}
+    <div class="flex gap-10 align-center fd-col">
+        {% for post in posts %}
+            <a href="/post-info?post_id={{ post.id }}" class="simple-card hov-scale flex fd-col padd-15-20 relative">
+                {% if post.project_id %}<div class="post-hint">{{ _("Edited") }}</div>{% endif %}
+                {% if post.message_id %}<div class="post-hint right"><img src="/static/img/tg-gray.svg"></div>{% endif %}
+                <img src="{{ post.thumbnail_url }}" class="thumbnail-image">
+                <div class="post-description">
+                    {{ post.text | format_html_news_feed | safe }}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {% if page > 0 or max_page > page+1 %}
+    <div class="simple-card padd-15-20 flex gap-10 jc-cn">
+        {% if page > 1 %}
+            <a class="pagination-button flex jc-cn align-center" href="/news">&lt;&lt;</a>
+        {% else %}
+            <div class="inactive pagination-button flex jc-cn align-center">&lt;&lt;</div>
+        {% endif %}
+        {% if page > 0 %}
+            <a class="pagination-button flex jc-cn align-center" href="/news/{{ page - 1 }}">&lt;</a>
+        {% else %}
+            <div class="inactive pagination-button flex jc-cn align-center">&lt;</div>
+        {% endif %}
+            <div class="pagination-button flex jc-cn align-center">
+                {{ page + 1 }}{# page numbers starts with 0, but for humans it must be 1 #}
+            </div>
+        {% if max_page > page+1 %}
+            <a class="pagination-button flex jc-cn align-center" href="/news/{{ page + 1 }}">&gt;</a>
+        {% else %}
+            <div class="inactive pagination-button flex jc-cn align-center">&gt;</div>
+        {% endif %}
+        {% if max_page > page+2 %}
+            <a class="pagination-button flex jc-cn align-center" href="/news/{{ max_page-1 }}">&gt;&gt;</a>
+        {% else %}
+            <div class="inactive pagination-button flex jc-cn align-center">&gt;&gt;</div>
+        {% endif %}
+    </div>
+    {% endif %}
+{% else %}
+    {% include 'posts/empty-content.html' %}
+{% endif %}

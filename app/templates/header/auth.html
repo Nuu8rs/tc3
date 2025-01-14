@@ -1,0 +1,17 @@
+<div class="auth-buttons flex gap-10">
+    {% if user %}
+    <a href="/profile">
+        <div class="login-button rounded-button">
+            {{ user.name }}
+        </div>
+    </a>
+    {% else %}
+        <!-- # TODO login pages -->
+    <div class="login-button rounded-button">
+        {{ _('Login') }}
+    </div>
+    <div class="sign-up-button rounded-button">
+        {{ _('Sign Up') }}
+    </div>
+    {% endif %}
+</div>

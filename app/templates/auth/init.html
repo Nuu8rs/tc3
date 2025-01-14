@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} {{ _('Auth') }} {% endblock %}
+{% block additional_js %}
+<script>
+$(document).ready(() => {
+    if (window.Telegram.WebApp.initData) {
+        const initData = new URLSearchParams(decodeURI(window.Telegram.WebApp.initData));
+        const initObject = Object.fromEntries(initData.entries());
+        sendRequest(
+            url='/auth/tg',
+            type='POST',
+            rawData={data: window.Telegram.WebApp.initData},
+            success_callback=() => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirect_url = urlParams.get('redirect')
+                window.location.href = redirect_url && redirect_url !== "/auth" ? redirect_url : '/profile';
+            },
+        );
+    } else {
+        alert('{{ _("Now application in beta-test mode, so we support only telegram clients") }}');
+    }
+});
+</script>
+{% endblock %}

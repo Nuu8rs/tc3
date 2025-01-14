@@ -1,0 +1,13 @@
+<div class="button-container">
+    <div id="open-form" class="button">
+        {{ _("Add new source") }}
+    </div>
+</div>
+<div id="chats-overlay" class="overlay"></div>
+<div id="form-container" style="display: none;">
+    <div class="form-content flex fd-col gap-10">
+        <label for="new-source">{{ _("Enter invite link:") }}</label>
+        <input type="text" id="new-source" placeholder="https://t.me/..." />
+        <div id="submit-source" class="light button hov-scale">{{ _("Confirm") }}</div>
+    </div>
+</div>
